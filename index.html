@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime Sad Boy - Koleksi Video Melancholic</title>
+    <style>
+        /* Reset dan style dasar */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #0a0a1a;
+            color: #e0e0ff;
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(28, 12, 114, 0.3) 0%, transparent 30%),
+                radial-gradient(circle at 90% 80%, rgba(74, 16, 126, 0.3) 0%, transparent 30%);
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(to right, #070b24, #1a1a40);
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 4, 40, 0.6);
+            position: relative;
+            border-bottom: 1px solid #2a2a80;
+        }
+        
+        .header-title {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(45deg, #4a7eff, #8a5eff, #ff55c8);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 15px rgba(100, 150, 255, 0.3);
+        }
+        
+        .header-subtitle {
+            font-size: 1rem;
+            color: #8899ff;
+            margin-bottom: 1rem;
+        }
+        
+        /* Navigation */
+        nav {
+            margin-top: 1rem;
+        }
+        
+        .nav-list {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 1.5rem;
+        }
+        
+        .nav-list a {
+            color: #aab5ff;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-list a:hover {
+            background: rgba(100, 120, 255, 0.2);
+            color: #4a7eff;
+        }
+        
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+        
+        /* Featured Video */
+        .featured-video {
+            margin-bottom: 3rem;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 30, 0.4);
+            background: rgba(10, 15, 35, 0.7);
+            border: 1px solid #2a2a80;
+        }
+        
+        .video-container {
+            position: relative;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .video-info {
+            padding: 1.5rem;
+        }
+        
+        .video-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #6a93ff;
+        }
+        
+        .video-desc {
+            color: #aab5ff;
+            font-size: 0.95rem;
+        }
+        
+        /* Video Grid */
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #6a93ff;
+            text-align: center;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(to right, #4a7eff, #8a5eff);
+            margin: 0.5rem auto;
+            border-radius: 3px;
+        }
+        
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .video-card {
+            background: rgba(15, 20, 45, 0.7);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #2a2a80;
+        }
+        
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 4, 40, 0.6);
+            border-color: #4a7eff;
+        }
+        
+        .card-thumb {
+            position: relative;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            overflow: hidden;
+        }
+        
+        .card-thumb img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .video-card:hover .card-thumb img {
+            transform: scale(1.05);
+        }
+        
+        .card-content {
+            padding: 1rem;
+        }
+        
+        .card-title {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: #8a9cff;
+        }
+        
+        .card-desc {
+            font-size: 0.85rem;
+            color: #8899cc;
+        }
+        
+        /* Music Player */
+        .music-player {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(15, 20, 45, 0.9);
+            border-radius: 50px;
+            padding: 0.75rem 1.5rem 0.75rem 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            box-shadow: 0 5px 20px rgba(0, 4, 40, 0.6);
+            border: 1px solid #2a2a80;
+            z-index: 100;
+        }
+        
+        .music-controls {
+            display: flex;
+            gap: 0.75rem;
+        }
+        
+        .music-btn {
+            background: rgba(100, 120, 255, 0.3);
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            color: #aab5ff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .music-btn:hover {
+            background: rgba(100, 120, 255, 0.5);
+            color: #ffffff;
+        }
+        
+        .music-info {
+            max-width: 180px;
+        }
+        
+        .music-title {
+            font-size: 0.9rem;
+            color: #8a9cff;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .music-artist {
+            font-size: 0.75rem;
+            color: #8899cc;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(to right, #070b24, #1a1a40);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            border-top: 1px solid #2a2a80;
+        }
+        
+        .footer-text {
+            color: #8899cc;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-title {
+                font-size: 2rem;
+            }
+            
+            .nav-list {
+                flex-wrap: wrap;
+                gap: 0.75rem;
+            }
+            
+            .video-grid {
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            }
+            
+            .music-player {
+                bottom: 10px;
+                right: 10px;
+                left: 10px;
+                border-radius: 10px;
+                justify-content: center;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .video-card {
+            animation: fadeIn 0.5s ease forwards;
+        }
+        
+        .video-card:nth-child(2) { animation-delay: 0.1s; }
+        .video-card:nth-child(3) { animation-delay: 0.2s; }
+        .video-card:nth-child(4) { animation-delay: 0.3s; }
+        .video-card:nth-child(5) { animation-delay: 0.4s; }
+        .video-card:nth-child(6) { animation-delay: 0.5s; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="header-title">Anime Sad Boy Collection</h1>
+        <p class="header-subtitle">Kumpulan video anime melancholic dengan estetika sad boy yang cool</p>
+        
+        <nav>
+            <ul class="nav-list">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Video</a></li>
+                <li><a href="#">Musik</a></li>
+                <li><a href="#">Wallpaper</a></li>
+                <li><a href="#">Tentang</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="container">
+        <section class="featured-video">
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/6EnLrdhYg4s?rel=0&modestbranding=1&autohide=1&showinfo=0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen></iframe>
+            </div>
+            <div class="video-info">
+                <h2 class="video-title">Tokyo Ghoul - Kaneki's Pain | Sad Edit</h2>
+                <p class="video-desc">Perjalanan Ken Kaneki yang penuh penderitaan dan pergolakan batin. Sebuah edit melancholic dengan musik yang menyentuh jiwa.</p>
+            </div>
+        </section>
+        
+        <h2 class="section-title">Koleksi Video Lainnya</h2>
+        
+        <div class="video-grid">
+            <div class="video-card">
+                <div class="card-thumb">
+                    <img src="https://i.ytimg.com/vi/6S2GQd6wRAc/maxresdefault.jpg" alt="Your Lie in April Edit">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Your Lie in April - Kaori's Last Performance</h3>
+                    <p class="card-desc">Momen mengharukan saat Kaori memberikan pertunjukan terakhirnya.</p>
+                </div>
+            </div>
+            
+            <div class="video-card">
+                <div class="card-thumb">
+                    <img src="https://i.ytimg.com/vi/4n3UxUM6GqE/maxresdefault.jpg" alt="Violet Evergarden Edit">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Violet Evergarden - Emotional Moments</h3>
+                    <p class="card-desc">Perjalanan Violet memahami arti cinta dan emosi manusia.</p>
+                </div>
+            </div>
+            
+            <div class="video-card">
+                <div class="card-thumb">
+                    <img src="https://i.ytimg.com/vi/8HeZttTDcbs/maxresdefault.jpg" alt="Anohana Edit">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Anohana - We Still Remember You</h3>
+                    <p class="card-desc">Kisah persahabatan dan kehilangan yang menyentuh hati.</p>
+                </div>
+            </div>
+            
+            <div class="video-card">
+                <div class="card-thumb">
+                    <img src="https://i.ytimg.com/vi/2RwAvX+UL-Q/maxresdefault.jpg" alt="Clannad Edit">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Clannad - After Story | Emotional Compilation</h3>
+                    <p class="card-desc">Perjalanan hidup Tomoya yang penuh dengan suka dan duka.</p>
+                </div>
+            </div>
+            
+            <div class="video-card">
+                <div class="card-thumb">
+                    <img src="https://i.ytimg.com/vi/5OYZbDjXyNk/maxresdefault.jpg" alt="Angel Beats Edit">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Angel Beats - Memories of the Afterlife</h3>
+                    <p class="card-desc">Kisah tentang penerimaan dan perpisahan di akhirat.</p>
+                </div>
+            </div>
+            
+            <div class="video-card">
+                <div class="card-thumb">
+                    <img src="https://i.ytimg.com/vi/5Z3WOBbZz-4/maxresdefault.jpg" alt="5 Centimeters Per Second Edit">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">5 Centimeters Per Second - Distance Between Us</h3>
+                    <p class="card-desc">Cerita tentang jarak dan waktu yang memisahkan dua hati.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="music-player">
+        <div class="music-controls">
+            <button class="music-btn" id="prev-btn">⏮</button>
+            <button class="music-btn" id="play-btn">▶</button>
+            <button class="music-btn" id="next-btn">⏭</button>
+        </div>
+        <div class="music-info">
+            <div class="music-title">Lost Memory - ¥ellow</div>
+            <div class="music-artist">Lofi Hip Hop</div>
+        </div>
+    </div>
+    
+    <footer>
+        <p class="footer-text">© 2023 Anime Sad Boy Collection - Untuk para pecinta anime melancholic</p>
+    </footer>
+    
+    <audio id="bg-music" loop>
+        <source src="https://cdn.pixabay.com/download/audio/2022/01/20/audio_7b607366a8.mp3?filename=lofi-chill-medium-version-159456.mp3" type="audio/mpeg">
+    </audio>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const audio = document.getElementById('bg-music');
+            const playBtn = document.getElementById('play-btn');
+            const nextBtn = document.getElementById('next-btn');
+            const prevBtn = document.getElementById('prev-btn');
+            const musicTitle = document.querySelector('.music-title');
+            
+            let isPlaying = false;
+            
+            // Daftar lagu (dalam bentuk URL sumber eksternal)
+            const songs = [
+                {
+                    title: "Lost Memory - ¥ellow",
+                    artist: "Lofi Hip Hop",
+                    src: "https://cdn.pixabay.com/download/audio/2022/01/20/audio_7b607366a8.mp3?filename=lofi-chill-medium-version-159456.mp3"
+                },
+                {
+                    title: "Sad Reflection",
+                    artist: "Ghostrifter Official",
+                    src: "https://cdn.pixabay.com/download/audio/2022/03/15/audio_5b8c985f63.mp3?filename=sad-reflection-141566.mp3"
+                },
+                {
+                    title: "Alone",
+                    artist: "Emotional Piano",
+                    src: "https://cdn.pixabay.com/download/audio/2021/10/25/audio_bb630d0623.mp3?filename=alone-112244.mp3"
+                }
+            ];
+            
+            let currentSongIndex = 0;
+            
+            // Fungsi untuk memutar lagu
+            function playSong() {
+                audio.play();
+                playBtn.innerHTML = "⏸";
+                isPlaying = true;
+            }
+            
+            // Fungsi untuk menjeda lagu
+            function pauseSong() {
+                audio.pause();
+                playBtn.innerHTML = "▶";
+                isPlaying = false;
+            }
+            
+            // Fungsi untuk mengganti lagu
+            function loadSong(index) {
+                currentSongIndex = index;
+                audio.src = songs[currentSongIndex].src;
+                musicTitle.textContent = songs[currentSongIndex].title;
+                document.querySelector('.music-artist').textContent = songs[currentSongIndex].artist;
+                
+                if (isPlaying) {
+                    audio.play();
+                }
+            }
+            
+            // Event listeners untuk tombol kontrol musik
+            playBtn.addEventListener('click', () => {
+                if (isPlaying) {
+                    pauseSong();
+                } else {
+                    playSong();
+                }
+            });
+            
+            nextBtn.addEventListener('click', () => {
+                let nextIndex = (currentSongIndex + 1) % songs.length;
+                loadSong(nextIndex);
+                if (isPlaying) playSong();
+            });
+            
+            prevBtn.addEventListener('click', () => {
+                let prevIndex = (currentSongIndex - 1 + songs.length) % songs.length;
+                loadSong(prevIndex);
+                if (isPlaying) playSong();
+            });
+            
+            // Otomatis memutar musik saat halaman dimuat (dengan volume rendah)
+            audio.volume = 0.3;
+            loadSong(0);
+            playSong();
+            
+            // Animasi scroll halus untuk semua link
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
